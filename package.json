@@ -1,15 +1,14 @@
 {
-  "name": "tnrs",
+  "name": "admin",
   "version": "1.0.0",
-  "description": "Gec teaching and researching online system",
+  "description": "An administrator template via vue.js",
   "author": "田昊天<h@otian.me>",
   "private": true,
   "scripts": {
     "watch": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "npm run watch",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "upload:jenkins": "scp -r ./dist/* root@172.17.232.151:/www/wwwroot/lingshiwu.gecacademy.cn"
   },
   "dependencies": {
     "axios": "^0.18.0",
