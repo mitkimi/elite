@@ -1,4 +1,4 @@
-import { post } from '@/utilitys/gecAxios'
+import { post } from '@/utilitys/ipAxios'
 export default {
   data () {
     return {
@@ -65,26 +65,22 @@ export default {
       }
     },
     async handleSubmit () {
-      // const params = this.form
-      // // 添加登录方式
-      // switch (this.pageData.signInMethod) {
-      //   case '密码登录':
-      //     params.type = 'password'
-      //     break
-      //   case 'PIN登录':
-      //     params.type = 'pin'
-      //     break
-      //   case '短信登录':
-      //     params.type = 'smscode'
-      //     break
-      //   default:
-      //     break
-      // }
-      this.loading = true
-      const params = {
-        name: this.form.userkey,
-        password: this.form.password
+      const params = this.form
+      // 添加登录方式
+      switch (this.pageData.signInMethod) {
+        case '密码登录':
+          params.type = 'password'
+          break
+        case 'PIN登录':
+          params.type = 'pin'
+          break
+        case '短信登录':
+          params.type = 'smscode'
+          break
+        default:
+          break
       }
+      this.loading = true
       const { data: res } = await post('/user/login', params)
       if (res.error.returnCode === 0) {
         // 成功
@@ -94,10 +90,10 @@ export default {
         //   path: '/filter'
         // })
         // 登录成功，写一些内容在 localStroage 里
-        // localStorage.token = res.data.token
-        // localStorage.face = res.data.userInfo.defaultFace || 'customer'
-        // localStorage.isAdmin = res.data.userInfo.isAdmin || 0
-        // localStorage.isShop = res.data.userInfo.isShop || 0
+        localStorage.token = res.data.token
+        localStorage.face = res.data.userInfo.defaultFace || 'customer'
+        localStorage.isAdmin = res.data.userInfo.isAdmin || 0
+        localStorage.isShop = res.data.userInfo.isShop || 0
         // localStorage.userInfo = JSON.stringify(res.data.userInfo)
         localStorage.realName = res.data.realName
         localStorage.phone = res.data.phone

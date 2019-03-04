@@ -1,4 +1,4 @@
-import { post } from '../../../utilitys/gecAxios'
+import { post } from '../../../utilitys/ipAxios'
 import GecApplyCard from '../../../components/applyCard'
 import NumberGrow from '../../../components/numberGrow'
 export default {

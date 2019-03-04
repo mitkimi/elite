@@ -3,7 +3,7 @@ import Dashboard from '@/layouts/dashboard'
 import SignIn from '@/views/signIn'
 
 // Dashboard 页面
-import Welcome from '@/components/HelloWorld'
+import Welcome from '@/views/dashboard/dashboard'
 import StudentList from '@/views/dashboard/studentList'
 import StudentDetail from '@/views/dashboard/studentDetail'
 import MentorList from '@/views/dashboard/mentorList'

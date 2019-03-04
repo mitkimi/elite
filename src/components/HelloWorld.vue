@@ -92,9 +92,9 @@ export default {
     }
   },
   created () {
-    this.$router.push({
-      path: '/dashboard/studentList'
-    })
+    // this.$router.push({
+    //   path: '/dashboard/studentList'
+    // })
   }
 }
 </script>

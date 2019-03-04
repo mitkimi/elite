@@ -1,5 +1,5 @@
 import GecStatusPicker from '@/components/statusBlock'
-import { post } from '../../../utilitys/gecAxios'
+import { post } from '../../../utilitys/ipAxios'
 export default {
   components: {
     GecStatusPicker

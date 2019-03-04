@@ -1,4 +1,4 @@
-import { post } from '../../../utilitys/gecAxios'
+import { post } from '../../../utilitys/ipAxios'
 import NumberGrow from '../../../components/numberGrow'
 import StatusBlock from '../../../components/statusBlock'
 export default {

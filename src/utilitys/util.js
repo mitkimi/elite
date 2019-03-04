@@ -1,4 +1,4 @@
-import { post } from '@/utilitys/gecAxios'
+import { post } from '@/utilitys/ipAxios'
 const utils = {
   signature: function () {
     // 获取登录状态

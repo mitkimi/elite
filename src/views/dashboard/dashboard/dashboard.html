@@ -1,0 +1,121 @@
+<div class="page">
+  <!-- 欢迎文字 -->
+  <div class="welcome">
+    <div class="avatar">
+      <img src="" />
+    </div>
+    <div class="user-info">
+      <div class="name">
+        测试用户，上午好，祝你开心每一天
+      </div>
+      <div class="detail">
+        交互专家 |集思学院－某某某事业群－某某平台部－某某技术部－UED
+      </div>
+    </div>
+    <div class="degrees">
+      <div class="degree-item">
+        <div class="title">项目数</div>
+        <div class="num">17</div>
+      </div>
+      <div class="degree-item">
+        <div class="title">团队内排名</div>
+        <div class="num">8<span>/17</span></div>
+      </div>
+      <div class="degree-item">
+        <div class="title">项目访问</div>
+        <div class="num">1,799</div>
+      </div>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+  <!-- 页面主体 -->
+  <div class="main-body">
+    <el-row :gutter="20">
+      <el-col :span="16">
+        <el-card class="box-card running-project">
+          <div slot="header" class="clearfix">
+            <span>进行中的项目</span>
+            <el-button style="float: right; padding: 3px 0" type="text">全部项目</el-button>
+          </div>
+          <div >
+            <el-row class="card-item-container" :gutter="4">
+              <el-col :span="8" v-for="item,index in 6" :key="index">
+                <el-card shadow="hover" class="card-item">
+                  <div class="project-head">
+                    <div class="avatar"></div>
+                    <div class="name">章三的内容</div>
+                  </div>
+                  <div class="project-body">
+                    那是一条神奇的天路呦喂，带我们走进人间天堂。
+                  </div>
+                  <div class="project-info">
+                    <div class="author">科学搬砖组</div>
+                    <div class="time">1分钟前</div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+          </div>
+        </el-card>
+        <el-card class="box-card moments">
+          <div slot="header" class="clearfix">
+            <span>动态</span>
+          </div>
+          <div class="moments-container">
+            <div class="moment-item" v-for="item,index in 8" :key="index">
+              <div class="avatar">
+                <img src="" />
+              </div>
+              <div class="detail">
+                <div class="moment-desc">
+                  <span>张三丰</span> 在 <router-link to="">一个什么群组</router-link> 新建项目 <router-link to="">六月迭代</router-link>
+                </div>
+                <div class="time">
+                  4天前
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card class="box-card quick-start">
+          <div slot="header" class="clearfix">
+            <span>快速开始</span>
+          </div>
+          <div class="quick-start-container">
+            <div class="quick-start-item" v-for="item,index in 7" :key="index">
+              快捷项目{{index + 1}}
+            </div>
+            <div class="quick-start-item quick-start-add">
+              <i class="el-icon-plus"></i> 添加
+            </div>
+            <div style="clear:both"></div>
+          </div>
+        </el-card>
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>XX 指数</span>
+          </div>
+          <div class="text item">
+            <my-chart></my-chart>
+          </div>
+        </el-card>
+        <el-card class="box-card team">
+          <div slot="header" class="clearfix">
+            <span>团队</span>
+          </div>
+          <el-row :gutter="20" class="team-container">
+            <el-col :span="12" v-for="item,index in 8" :key="index">
+              <div class="team-item">
+                <div class="avatar"></div>
+                <div class="name">第{{index+1}}个组</div>
+              </div>
+            </el-col>
+          </el-row>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
+</div>
