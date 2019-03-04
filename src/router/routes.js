@@ -4,12 +4,8 @@ import SignIn from '@/views/signIn'
 
 // Dashboard 页面
 import Welcome from '@/views/dashboard/dashboard'
-import StudentList from '@/views/dashboard/studentList'
-import StudentDetail from '@/views/dashboard/studentDetail'
-import MentorList from '@/views/dashboard/mentorList'
-import MentorDetail from '@/views/dashboard/mentorDetail'
-import BCreateStudent from '@/views/dashboard/bCreateStudent'
-import BUpdateStudent from '@/views/dashboard/bUpdateStudent'
+import BasicForm from '@/views/dashboard/basicForm'
+import StepForm from '@/views/dashboard/stepForm'
 
 const Routes = [
   {
@@ -33,34 +29,14 @@ const Routes = [
         component: Welcome
       },
       {
-        path: 'student',
-        name: 'StudentDetail',
-        component: StudentDetail
+        path: 'basic-form',
+        name: 'BasicForm',
+        component: BasicForm
       },
       {
-        path: 'studentList',
-        name: 'StudentList',
-        component: StudentList
-      },
-      {
-        path: 'mentorList',
-        name: 'MentorList',
-        component: MentorList
-      },
-      {
-        path: 'mentor',
-        name: 'MentorDetail',
-        component: MentorDetail
-      },
-      {
-        path: 'bCreateStudent',
-        name: 'BCreateStudent',
-        component: BCreateStudent
-      },
-      {
-        path: 'bUpdateStudent',
-        name: 'BUpdateStudent',
-        component: BUpdateStudent
+        path: 'step-form',
+        name: 'StepForm',
+        component: StepForm
       }
     ]
   }

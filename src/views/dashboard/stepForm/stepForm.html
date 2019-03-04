@@ -1,0 +1,123 @@
+<div class="page">
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>基础表单</span>
+    </div>
+    <div class="main-body">
+      <div class="description">将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</div>
+      <div class="form-container">
+        <el-steps :active="active" align-center finish-status="finish">
+          <el-step title="填写转账信息" description="这是一段很长很长很长的描述性文字"></el-step>
+          <el-step title="确认转账信息" description="这是一段很长很长很长的描述性文字"></el-step>
+          <el-step title="完成" description="这是一段比较短"></el-step>
+        </el-steps>
+        <div class="form" v-if="active === 1">
+          <el-form ref="form" :model="form" label-width="120px">
+            <el-form-item label="付款账户">
+              <el-input v-model="form.payAccount"></el-input>
+            </el-form-item>
+            <el-form-item label="收款账户">
+              <el-input placeholder="请输入收款账户" v-model="form.recieverAccount" class="input-with-select">
+                <el-select v-model="form.payMethod" slot="prepend" placeholder="请选择" style="width: 110px;">
+                  <el-option label="支付宝" value="alipay"></el-option>
+                  <el-option label="微信" value="wechatpay"></el-option>
+                  <el-option label="银行账户" value="bank"></el-option>
+                </el-select>
+              </el-input>
+            </el-form-item>
+            <el-form-item label="收款人姓名">
+              <el-input v-model="form.recieverName"></el-input>
+            </el-form-item>
+            <el-form-item label="转账金额">
+              <el-input v-model="form.cash"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button @click="handleNext">下一步</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+        <div class="form" v-if="active === 2">
+          <el-alert
+            title="确认转账后，资金将直接打入对方账户，无法退回。"
+            type="warning"
+            show-icon>
+          </el-alert>
+          <div class="payment-info-container">
+            <el-row class="payment-info-item">
+              <el-col :span="4">付款账户</el-col>
+              <el-col :span="20">{{form.payAccount}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款账户</el-col>
+              <el-col :span="20">{{form.recieverAccount}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款方式</el-col>
+              <el-col :span="20">{{form.payMethod}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款人姓名</el-col>
+              <el-col :span="20">{{form.recieverName}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">转账金额</el-col>
+              <el-col :span="20">¥ {{form.cash.toFixed(2)}}</el-col>
+            </el-row>
+          </div>
+          <el-form class="password" ref="form" :model="form" label-width="120px">
+            <el-form-item label="支付密码">
+              <el-input v-model="form.password" type="password"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button @click="handlePrev">上一步</el-button>
+              <el-button type="primary" @click="handleNext">提交</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+        <div class="form" v-if="active === 3">
+          <div class="result success" v-if="result.return === 'success'">
+            <div class="sign">
+              <i class="el-icon-check"></i>
+            </div>
+            <div class="ret">操作成功</div>
+            <div class="desc">预计两小时内到账</div>
+          </div>
+          <div class="result fail" v-if="result.return === 'fail'">
+            <div class="sign">
+              <i class="el-icon-close"></i>
+            </div>
+            <div class="ret">操作失败</div>
+            <div class="desc">{{result.msg}}</div>
+          </div>
+          <div class="order-info">
+            <el-row class="payment-info-item">
+              <el-col :span="4">付款账户</el-col>
+              <el-col :span="20">{{form.payAccount}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款账户</el-col>
+              <el-col :span="20">{{form.recieverAccount}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款方式</el-col>
+              <el-col :span="20">{{form.payMethod}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">收款人姓名</el-col>
+              <el-col :span="20">{{form.recieverName}}</el-col>
+            </el-row>
+            <el-row class="payment-info-item">
+              <el-col :span="4">转账金额</el-col>
+              <el-col :span="20">¥ {{form.cash.toFixed(2)}}</el-col>
+            </el-row>
+          </div>
+          <div class="buttons">
+            <el-button type="primary">再转一笔</el-button>
+            <el-button>查看账单</el-button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </el-card>
+</div>

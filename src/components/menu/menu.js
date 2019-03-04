@@ -16,12 +16,12 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/studentList',
+              path: '/dashboard/basic-form',
               label: '基础表单',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/mentorList',
+              path: '/dashboard/step-form',
               label: '分布表单',
               auth: ['admin', 'customer']
             }

@@ -1,0 +1,73 @@
+.page {
+  width: 100%;
+  .main-body {
+    .description {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #999999;
+    }
+    .form {
+      width: 600px;
+      margin: 0 auto;
+      margin-top: 40px;
+      .payment-info-container {
+        margin-top: 40px;
+        .payment-info-item {
+          margin-bottom: 20px;
+        }
+      }
+      .password {
+        margin-top: 40px;
+        border-top: 1px solid #999999;
+        padding-top: 20px;
+      }
+      .result {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .sign {
+          width: 80px;
+          height: 80px;
+          background: #cccccc;
+          border-radius: 50%;
+          color: #ffffff;
+          font-size: 50px;
+          line-height: 80px;
+          text-align: center;
+        }
+        .ret {
+          margin-top: 20px;
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .desc {
+          margin-top: 10px;
+          font-size: 14px;
+          color: #999999;
+        }
+      }
+      .success {
+        .sign {background: #67C23A}
+      }
+      .fail {
+        .sign {background: #F56C6C}
+      }
+      .order-info {
+        background: #efeff3;
+        border-radius: 4px;
+        padding: 20px;
+        margin-top: 40px;
+        .payment-info-item {
+          margin: 10px 0;
+        }
+      }
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+}
