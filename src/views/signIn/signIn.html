@@ -1,0 +1,56 @@
+<div id="page">
+  <div class="form" v-loading="loading">
+    <div class="head">
+      <div class="title">集思学院教研系统</div>
+    </div>
+    <div class="body">
+
+      <!-- <div class="sign-in-method">
+        <el-radio-group v-model="pageData.signInMethod">
+          <el-radio-button label="密码登录"></el-radio-button>
+          <el-radio-button label="PIN登录"></el-radio-button>
+          <el-radio-button label="短信登录"></el-radio-button>
+        </el-radio-group>
+      </div> -->
+      <div class="password method-container" v-if="pageData.signInMethod === '密码登录'">
+        <el-input v-model="form.userkey" placeholder="用户名" clearable></el-input>
+        <div style="height: 20px;"></div>
+        <el-input v-model="form.password" type="password" placeholder="请输入密码" clearable></el-input>
+      </div>
+      <div class="pin method-container" v-if="pageData.signInMethod === 'PIN登录'">
+        <el-input v-model="form.userkey" placeholder="用户名/手机号/邮箱" clearable></el-input>
+        <div style="height: 20px;"></div>
+        <el-input v-model="form.pin" type="password" placeholder="请输入PIN" maxlength="4" clearable></el-input>
+      </div>
+      <div class="smscode method-container" v-if="pageData.signInMethod === '短信登录'">
+        <el-input type="tel" v-model="form.userkey" placeholder="请输入手机号" clearable></el-input>
+        <div style="height: 20px;"></div>
+        <div class="input-container">
+          <div class="input">
+            <el-input v-model="form.code" placeholder="请输入短信验证码"></el-input>
+          </div>
+          <div class="button">
+            <el-button @click="handleGetVerifictionCode" :disabled="pageData.verifcationCode.disabled">{{pageData.verifcationCode.button}}</el-button>
+          </div>
+        </div>
+      </div>
+      <div class="link-container">
+        <el-checkbox v-model="pageData.rememberMe" class="rememeber-me">记住我</el-checkbox>
+        <!-- <router-link to="/signup" class="register">没有账号？立即注册</router-link>
+        <router-link to="/" class="find-pass">忘记密码？</router-link> -->
+      </div>
+      <div class="submit-btn-container">
+        <el-button type="primary" class="sign-in-btn" @click="handleSubmit">登 录</el-button>
+      </div>
+      <div class="wechat-sign-in">
+        <div class="tit">微信登录</div>
+        <div class="wechat-btn">
+          <img src="./img/wechat.png" />
+        </div>
+        <div class="desc">
+          使用微信 APP 登录
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

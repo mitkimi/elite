@@ -1,0 +1,266 @@
+// 全局
+.wechat-sign-in {
+  display: none;
+}
+// PC端
+@media screen and (min-width: 750px) {
+  #page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/bg.png);
+    background-size: 100% 100%;
+    .form {
+      width: 400px;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all, 0.5s;
+      .sign-in-method {
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .head {
+        background: #333333;
+        padding: 20px;
+        position: relative;
+        .title {
+          color: #ffffff;
+          font-size: 25px;
+          text-align: center;
+          line-height: 60px;
+        }
+        img {
+          height: 30px;
+        }
+        .sign-up-container {
+          position: absolute;
+          top: 30px;
+          right: 20px;
+          outline: none;
+          border: 0;
+          a {
+            font-size: 12px;
+            transition: all, 0.5s;
+            text-decoration: none;
+            &:link, &:visited {
+              color: #f3d16c;
+            }
+            &:hover, &:active {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+      .body {
+        padding: 40px 20px;
+        .i-icon {
+          height: 16px;
+          margin-top: 2px;
+        }
+        .method-container {
+          padding: 0 30px;
+          .input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+        .link-container {
+          margin-top: 20px;
+          padding: 0 30px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          a {
+            font-size: 12px;
+            transition: all, 0.5s;
+            text-decoration: none;
+            &:link, &:visited {
+              color: #00a7ff;
+            }
+            &:hover, &:active {
+              color: #49a7ff;
+            }
+          }
+          .register {
+            display: none;
+          }
+        }
+        .submit-btn-container {
+          margin-top: 20px;
+          padding: 0 30px;
+          button {
+            width: 100%;
+          }
+        }
+        .wechat-sign-in {
+          margin-top: 40px;
+          .tit {
+            color: #999999;
+            text-align: center;
+            z-index: 2;
+            &:before {
+              content: ' ';
+              display: block;
+              width: 100px;
+              height: 2px;
+              background: #cccccc;
+              margin: 0 30px;
+              margin-bottom: -12px;
+              margin-left: 30px;
+            }
+            &:after {
+              content: ' ';
+              display: block;
+              width: 100px;
+              height: 2px;
+              background: #cccccc;
+              margin: 0 30px;
+              margin-top: -13px;
+              margin-left: 230px;
+            }
+          }
+          .wechat-btn {
+            margin: 0 auto;
+            margin-top: 40px;
+            background: #6ad28f;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            // transition: all, 0.5s;
+            &:hover {
+              background: linear-gradient(#67d549,#56b73b);
+            }
+            img {
+              width: 55%;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          .desc {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/bg.png);
+    .form {
+      width: 95vw;
+      background: rgba(255, 255, 255, .7);
+      border-radius: 8px;
+      overflow: hidden;
+      .head {
+        background: #333333;
+        padding: 30px;
+        .title {
+          color: #ffffff;
+          font-size: 25px;
+          text-align: center;
+          line-height: 60px;
+        }
+        img {
+          height: 50px;
+          display: block;
+          margin: 0 auto;
+        }
+        a {
+          display: none;
+        }
+      }
+      .body {
+        margin-top: 30px;
+        padding: 0 20px;
+        padding-bottom: 30px;
+        .sign-in-method {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+        .method-container {
+          margin-top: 20px;
+        }
+        .smscode {
+          .input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+        .link-container {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          a {
+            font-size: 14px;
+            text-decoration: none;
+            &:link, &:visited {
+              color: #00a7ff;
+            }
+          }
+          .rememeber-me {
+            display: none;
+          }
+        }
+        .submit-btn-container {
+          margin-top: 20px;
+          button {
+            width: 100%;
+          }
+        }
+        .wechat-sign-in {
+          .tit {
+            display: none;
+          }
+          .wechat-btn {
+            margin: 0 auto;
+            margin-top: 60px;
+            background: linear-gradient(#67d549,#56b73b);;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            img {
+              width: 55%;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          .desc {
+            color: #999999;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

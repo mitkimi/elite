@@ -1,0 +1,33 @@
+<div class="gec-status-picker-container">
+  <div class="status-txt" @click="handleShowDialog">{{str}}</div>
+  <div class="gec-status-picker-board" v-if="dialogShow">
+    <div class="status-picker">
+      <div v-for="item,index in statusArr" @click="handleSelectStatus(item.key)" >
+        <div class="tag current" v-if="item.key === buffer(item.key)" style="overflow: hidden;" @click="handleChooseDate(item.key)">
+          {{item.name}}
+          <span v-if="item.key === 3">
+            {{date | momentDay}}
+          </span>
+          <div style="height: 0;opacity: 0;position: absolute;top: 10px;left: 0;">
+            <el-date-picker
+              v-model="date"
+              type="date"
+              ref="datePicker"
+              placeholder="选择日期">
+            </el-date-picker>
+          </div>
+        </div>
+        <div class="tag" v-else>
+            {{item.name}}
+        </div>
+      </div>
+    </div>
+    <div class="status-history">
+      <div class="history-container"></div>
+      <div class="option-btns">
+        <div class="btn btn-submit" @click="handleSubmit">确定</div>
+        <div class="btn btn-cancel" @click="handleCancel">取消</div>
+      </div>
+    </div>
+  </div>
+</div>
