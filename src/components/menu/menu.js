@@ -34,17 +34,17 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/table-list',
               label: '查询表格',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new2',
-              label: '标准',
+              path: '/dashboard/basic-list',
+              label: '标准列表',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new2',
+              path: '/dashboard/card-list',
               label: '卡片列表',
               auth: ['admin', 'customer']
             }
@@ -57,7 +57,7 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/basic-detail',
               label: '基础详情页',
               auth: ['admin', 'customer']
             }
@@ -70,12 +70,12 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/result-success',
               label: '成功页',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/result-fail',
               label: '失败页',
               auth: ['admin', 'customer']
             }
@@ -88,17 +88,17 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/page-403',
               label: '403',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/page-404',
               label: '404',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/page-500',
               label: '500',
               auth: ['admin', 'customer']
             }
@@ -111,17 +111,17 @@ export default {
           auth: ['admin', 'customer'],
           children: [
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/profile',
               label: '个人中心',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/setting',
               label: '个人设置',
               auth: ['admin', 'customer']
             },
             {
-              path: '/dashboard/new1',
+              path: '/dashboard/password',
               label: '修改密码',
               auth: ['admin', 'customer']
             }

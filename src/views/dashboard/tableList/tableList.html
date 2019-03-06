@@ -1,0 +1,60 @@
+<div class="page">
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>查询表格</span>
+      </div>
+      <div class="main-body">
+        <div class="filter">
+          <el-input v-model="filter.name" placeholder="姓名" style="width: 200px;"></el-input>
+          <el-select v-model="filter.status" placeholder="请选择状态">
+            <el-option
+              v-for="item in pageData.status"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+          <el-button type="primary">查询</el-button>
+          <el-button>重置</el-button>
+        </div>
+        <div class="ops">
+          <el-button type="primary" icon="el-icon-plus">新建</el-button>
+        </div>
+        <div class="info">
+          <el-alert
+            :title="'本次筛选共有 '+pageData.tableData.length+' 条数据'"
+            type="info"
+            show-icon>
+          </el-alert>
+        </div>
+        <div class="table-body">
+          <el-table
+            :data="pageData.tableData"
+            style="width: 100%">
+            <el-table-column
+              prop="date"
+              label="日期"
+              width="180"
+              sortable>
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="姓名"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              label="地址">
+            </el-table-column>
+            <el-table-column
+              label="操作">
+              <template slot-scope="scope">
+                <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
+                <el-button type="text">编辑</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </div>
+    </el-card>
+</div>

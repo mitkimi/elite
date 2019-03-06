@@ -11,7 +11,7 @@ export default {
     return {
       filterShow: false,
       loading: true,
-      active: 3,
+      active: 1,
       form: {
         payAccount: 'mitkimi@163.com',
         recieverAccount: '',

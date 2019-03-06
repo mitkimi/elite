@@ -7,6 +7,7 @@
     background-color="#001529"
     text-color="#fff"
     active-text-color="#409EFF"
+    unique-opened
     router>
     <div v-for="Alevel,index in menu" :key="index">
       <el-menu-item :index="Alevel.path" v-if="!Alevel.children || Alevel.children.length <= 0">

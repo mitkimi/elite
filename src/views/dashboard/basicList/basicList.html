@@ -1,0 +1,69 @@
+<div class="page">
+  <div class="basic-info-container" v-loading="loading">
+    <div class="info-box info-box-default">
+      <div class="num"><number-grow :value="43"></number-grow>条</div>
+      <div class="name">新提交信息</div>
+    </div>
+    <div class="info-box info-box-default">
+      <div class="num"><number-grow :value="14"></number-grow>个</div>
+      <div class="name">申请信息</div>
+    </div>
+    <div class="info-box info-box-success">
+      <div class="num"><number-grow :value="3"></number-grow>个</div>
+      <div class="name">完成申请</div>
+    </div>
+    <div class="info-box info-box-danger">
+      <div class="num"><number-grow :value="8"></number-grow>条</div>
+      <div class="name">网申预警</div>
+    </div>
+  </div>
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>标准列表</span>
+    </div>
+    <div class="main-body" v-loading="loading">
+      <div class="filter">
+        <el-input v-model="filter.name" placeholder="姓名" style="width: 200px;"></el-input>
+        <el-select v-model="filter.status" placeholder="请选择状态">
+          <el-option
+            v-for="item in pageData.status"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+        <el-button type="primary">查询</el-button>
+        <el-button>重置</el-button>
+      </div>
+      <div class="ops">
+        <el-button type="primary" icon="el-icon-plus">新建</el-button>
+      </div>
+      <div class="info">
+        <el-alert
+          :title="'本次筛选共有 '+pageData.tableData.length+' 条数据'"
+          type="info"
+          show-icon>
+        </el-alert>
+      </div>
+      <div class="list-body">
+        <div class="list-item" v-for="item,index in pageData.tableData" :key="index">
+          <div class="avatar">
+            <img src="" />
+          </div>
+          <div class="list-info">
+            <div class="name">{{item.name}}</div>
+            <div class="address">{{item.address}}</div>
+          </div>
+          <div class="time">
+            <div class="">开始时间</div>
+            <div class="time-moment">{{item.date}}</div>
+          </div>
+          <div class="list-ops">
+            <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
+            <el-button type="text">编辑</el-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </el-card>
+</div>
