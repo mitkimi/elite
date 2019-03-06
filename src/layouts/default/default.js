@@ -7,13 +7,13 @@ export default {
   },
   methods: {
     initPageData () {
-      this.getUserLogin()
+      this.getUserLoginMock()
     },
     async getUserLogin () {
       const params = {}
-      const uri = '/user/isLogin'
+      const uri = ''
       const {data: res} = await post(uri, params)
-      if (res.error.returnCode === 0) {
+      if (res.code >= 0) {
         if (res.data.isLogin) {
           // 已经登录
           this.$router.push({
@@ -29,6 +29,13 @@ export default {
           path: '/signin'
         })
       }
+    },
+    getUserLoginMock () {
+      setTimeout(()=>{
+        this.$router.push({
+          path: '/dashboard/welcome'
+        })
+      }, 3000)
     }
   }
 }
