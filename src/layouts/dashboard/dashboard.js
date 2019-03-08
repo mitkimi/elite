@@ -1,7 +1,7 @@
 import GecMenu from '../../components/menu'
-
+import BreadCrumb from '../../components/breadcrumb'
 export default {
-  components: { GecMenu },
+  components: { GecMenu, BreadCrumb },
   data () {
     return {
       basic: {

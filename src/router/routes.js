@@ -2,19 +2,6 @@ import Default from '@/layouts/default'
 import Dashboard from '@/layouts/dashboard'
 import SignIn from '@/views/signIn'
 
-// Dashboard 页面
-import Welcome from '@/views/dashboard/dashboard'
-import BasicForm from '@/views/dashboard/basicForm'
-import StepForm from '@/views/dashboard/stepForm'
-import TableList from '@/views/dashboard/tableList'
-import BasicList from '@/views/dashboard/basicList'
-import CardList from '@/views/dashboard/cardList'
-import ResultSuccess from '@/views/dashboard/resultSuccess'
-import ResultFailure from '@/views/dashboard/resultFailure'
-import Page403 from '@/views/dashboard/page403'
-import Page404 from '@/views/dashboard/page404'
-import Page500 from '@/views/dashboard/page500'
-
 const Routes = [
   {
     path: '/',
@@ -27,64 +14,70 @@ const Routes = [
     component: SignIn
   },
   {
+    icon: 'el-icon-menu',
+    label: '工作台',
     path: '/dashboard',
+    auth: ['admin', 'customer'],
     name: 'Dashboard',
     component: Dashboard,
     children: [
       {
+        icon: 'el-icon-menu',
+        label: '工作台',
         path: 'welcome',
+        auth: ['admin', 'customer'],
         name: 'Welcome',
-        component: Welcome
+        component: () => import('@/views/dashboard/dashboard')
       },
       {
         path: 'basic-form',
         name: 'BasicForm',
-        component: BasicForm
+        component: () => import('@/views/dashboard/basicForm')
       },
       {
         path: 'step-form',
         name: 'StepForm',
-        component: StepForm
+        component: () => import('@/views/dashboard/stepForm')
       },
       {
         path: 'table-list',
         name: 'TableList',
-        component: TableList
+        component: () => import('@/views/dashboard/tableList')
       },
       {
         path: 'basic-list',
         name: 'BasicList',
-        component: BasicList
+        component: () => import('@/views/dashboard/basicList')
       },
       {
         path: 'card-list',
         name: 'CardList',
-        component: CardList
+        component: () => import('@/views/dashboard/cardList')
       },
       {
         path: 'result-success',
         name: 'ResultSuccess',
-        component: ResultSuccess
+        component: () => import('@/views/dashboard/resultSuccess')
       },
       {
         path: 'result-fail',
         name: 'ResultFailure',
-        component: ResultFailure
+        component: () => import('@/views/dashboard/resultFailure')
       },
       {
         path: 'page-403',
         name: 'Page403',
-        component: Page403
+        component: () => import('@/views/dashboard/page403')
       },
       {
         path: 'page-404',
         name: 'Page404',
-        component: Page404
+        component: () => import('@/views/dashboard/page404')
       },
       {
         path: 'page-500',
         name: 'Page500',
-        component: Page500
+        component: () => import('@/views/dashboard/page500')
       }
     ]
   }
