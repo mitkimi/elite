@@ -1,9 +1,9 @@
-# ipadmin
+# Elite Admin Panel - EAP
 
-> An administrator template via vue.js
+> Vue 家族的后台面板前端解决方案
 
 ## 写在前面
-ipadmin（暂定名）是一个基于 vue.js 开发，以及用 ElementUI 作为基础UI框架完成的一个后台管理控制台的脚手架，帮助你快速的构建中后台产品。
+Elite Admin Panel 是一个基于 vue.js 开发，以及用 ElementUI 作为基础UI框架完成的一个后台管理控制台的脚手架，帮助你快速的构建中后台产品。
 
 基于以上理念，我们提供了以下的典型模板，共开发者使用和设计者参考。
 
@@ -42,7 +42,7 @@ ipadmin（暂定名）是一个基于 vue.js 开发，以及用 ElementUI 作为
 ## development
 ### 开发者
 ``` bash
-git clone https://github.com/mitkimi/admin.git
+git clone https://github.com/mitkimi/elite.git
 cd admin
 npm install
 npm run watch
