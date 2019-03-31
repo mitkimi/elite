@@ -9,6 +9,13 @@ export default {
   created () {
     this.fommater()
   },
+  watch: {
+    $route: function () {
+      // console.log(to)
+      // console.log(this)
+      this.fommater()
+    }
+  },
   methods: {
     fommater () {
       routes.map(lay1 => {
