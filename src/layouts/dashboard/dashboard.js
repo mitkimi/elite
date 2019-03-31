@@ -10,7 +10,9 @@ export default {
     }
   },
   mounted () {
-    localStorage.realName ? this.basic.realName = localStorage.realName : console.log(0)
+    // 获取用户名称
+    const realName = localStorage.realName || '加载中...'
+    this.basic.realName = realName
   },
   methods: {
     routePath (path) {

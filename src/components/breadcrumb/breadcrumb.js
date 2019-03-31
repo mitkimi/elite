@@ -7,9 +7,7 @@ export default {
     }
   },
   created () {
-    // console.log(routes)
     this.fommater()
-    console.log(this.routes1dList)
   },
   methods: {
     fommater () {
@@ -25,6 +23,7 @@ export default {
             this.routes1dList.push(obj)
           })
         } else {
+          // 没有二级的
           const obj = {
             path: lay1.path,
             label: [lay1.label || lay1.name]
