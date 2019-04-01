@@ -9,12 +9,12 @@
     active-text-color="#409EFF"
     unique-opened
     router>
-    <div v-for="Alevel,index in menu" :key="index">
-      <el-menu-item :index="Alevel.path" v-if="!Alevel.children || Alevel.children.length <= 0">
+    <div v-for="Alevel,index in menu" :key="index" v-if="Alevel.showInMenu">
+      <el-menu-item :index="index" v-if="!Alevel.children || Alevel.children.length <= 0">
         <i :class='Alevel.icon'></i>
         <span>{{Alevel.label}}</span>
       </el-menu-item>
-      <el-submenu :index="Alevel.path" v-if="testAuth(Alevel.auth) && Alevel.children && Alevel.children.length > 0">
+      <el-submenu :index="index" v-if="testAuth(Alevel.auth) && Alevel.children && Alevel.children.length > 0">
         <template slot="title">
           <i :class='Alevel.icon'></i>
           <span>{{Alevel.label}}</span>
