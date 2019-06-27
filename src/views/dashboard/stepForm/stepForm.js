@@ -27,9 +27,6 @@ export default {
       }
     }
   },
-  created () {
-    this.handleSearchSubmit()
-  },
   methods: {
     handleNext () {
       this.active += 1
