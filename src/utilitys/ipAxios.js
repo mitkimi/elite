@@ -38,7 +38,7 @@ export function fetch (url, params = {}) {
     })
       .then((response) => {
         resolve(response)
-        if (response.code === -1000) {
+        if (response.data.code === -1000) {
           router.push({
             path: '/signin'
           })
@@ -62,7 +62,7 @@ export function post (url, params = {}) {
       .then(function (response) {
         resolve(response)
         // 在所有 post 接口出现 -1000 状态时直接跳去登录
-        if (response.code === -1000 && url !== '/login/check') {
+        if (response.data.code === -1000 && url !== '/login/check') {
           router.push({
             path: '/signin'
           })
