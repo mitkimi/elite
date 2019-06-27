@@ -19,7 +19,7 @@ export default {
   methods: {
     fommater () {
       routes.map(lay1 => {
-        //
+        // 第一层
         if (lay1.children) {
           // 有二级的
           lay1.children.map(lay2 => {
