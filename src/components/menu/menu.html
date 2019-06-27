@@ -10,17 +10,19 @@
     unique-opened
     router>
     <div v-for="Alevel,index in menu" :key="index" v-if="Alevel.showInMenu">
-      <el-menu-item :index="index" v-if="!Alevel.children || Alevel.children.length <= 0">
+      <!-- 级别下只有一个菜单的 -->
+      <el-menu-item :index="Alevel.path + '/'+ Alevel.children[0].path" v-if="Alevel.children.length <= 1">
         <i :class='Alevel.icon'></i>
         <span>{{Alevel.label}}</span>
       </el-menu-item>
-      <el-submenu :index="index" v-if="testAuth(Alevel.auth) && Alevel.children && Alevel.children.length > 0">
+      <!-- 级别下有多个菜单的 -->
+      <el-submenu :index="index.toString()" v-if="isAuth(Alevel.auth) && Alevel.children && Alevel.children.length > 1">
         <template slot="title">
           <i :class='Alevel.icon'></i>
           <span>{{Alevel.label}}</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item v-for="Blevel,index in Alevel.children" :key="index" :index="Blevel.path" v-if="testAuth(Blevel.auth)">{{Blevel.label}}</el-menu-item>
+          <el-menu-item v-for="Blevel,index in Alevel.children" :key="index" :index="Blevel.path" v-if="isAuth(Blevel.auth)">{{Blevel.label}}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </div>

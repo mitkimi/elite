@@ -15,7 +15,7 @@ export default {
       const fullPath = this.$route.fullPath
       this.defaultIndex = fullPath
     },
-    testAuth (auth) {
+    isAuth (auth) {
       let flag = false
       for (const element of auth) {
         if (element === 'admin') {

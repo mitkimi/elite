@@ -18,9 +18,9 @@ const Routes = [
   {
     icon: 'el-icon-menu',
     label: '工作台',
+    name: 'Dashboard',
     path: '/dashboard',
     auth: ['admin', 'customer'],
-    name: 'Dashboard',
     showInMenu: true,
     component: Dashboard,
     children: [
@@ -36,9 +36,9 @@ const Routes = [
   {
     icon: 'el-icon-edit-outline',
     label: '表单页',
+    name: 'FormPage',
     path: '/dashboard',
     auth: ['admin', 'customer'],
-    name: 'Dashboard',
     showInMenu: true,
     component: Dashboard,
     children: [
@@ -64,7 +64,7 @@ const Routes = [
     label: '列表页',
     path: '/dashboard',
     auth: ['admin', 'customer'],
-    name: 'Dashboard',
+    name: 'ListPage',
     showInMenu: true,
     component: Dashboard,
     children: [
@@ -97,6 +97,7 @@ const Routes = [
   {
     icon: 'el-icon-document',
     label: '详情页',
+    name: 'DetailPage',
     path: '/dashboard/detail',
     auth: ['admin', 'customer'],
     showInMenu: false,
@@ -112,9 +113,9 @@ const Routes = [
   {
     icon: 'el-icon-circle-check-outline',
     label: '结果页',
+    name: 'ResultPage',
     path: '/dashboard',
     auth: ['admin', 'customer'],
-    name: 'Dashboard',
     showInMenu: true,
     component: Dashboard,
     children: [
@@ -139,9 +140,9 @@ const Routes = [
   {
     icon: 'el-icon-circle-close-outline',
     label: '异常页',
+    name: 'ErrorPage',
     path: '/dashboard',
     auth: ['admin', 'customer'],
-    name: 'Dashboard',
     showInMenu: true,
     component: Dashboard,
     children: [
@@ -174,6 +175,7 @@ const Routes = [
   {
     icon: 'el-icon-star-off',
     label: '个人页',
+    name: 'ProfilePage',
     path: '/dashboard/classing',
     auth: ['admin', 'customer'],
     showInMenu: false,
