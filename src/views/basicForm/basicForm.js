@@ -1,11 +1,9 @@
-import { post } from '../../../utilitys/ipAxios'
-import NumberGrow from '../../../components/numberGrow'
-import StatusBlock from '../../../components/statusBlock'
+import { post } from '../../utilitys/ipAxios'
+import NumberGrow from '../../components/numberGrow'
 export default {
   components: {
     // GecStudentList,
-    NumberGrow,
-    StatusBlock
+    NumberGrow
   },
   data () {
     return {

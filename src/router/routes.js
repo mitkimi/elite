@@ -1,6 +1,6 @@
 import Default from '@/layouts/default'
 import Dashboard from '@/layouts/dashboard'
-import SignIn from '@/views/signIn'
+import SignIn from '@/layouts/signIn'
 
 const Routes = [
   {
@@ -30,7 +30,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'Welcome',
         showInMenu: true,
-        component: () => import('@/views/dashboard/dashboard')
+        component: () => import('@/views/dashboard')
       }]
   },
   {
@@ -48,7 +48,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'BasicForm',
         showInMenu: true,
-        component: () => import('@/views/dashboard/basicForm')
+        component: () => import('@/views/basicForm')
       },
       {
         label: '分步表单',
@@ -56,7 +56,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'StepForm',
         showInMenu: true,
-        component: () => import('@/views/dashboard/stepForm')
+        component: () => import('@/views/stepForm')
       }
     ]
   }, {
@@ -74,7 +74,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'TableList',
         showInMenu: true,
-        component: () => import('@/views/dashboard/tableList')
+        component: () => import('@/views/tableList')
       },
       {
         label: '标准列表',
@@ -82,7 +82,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'BasicList',
         showInMenu: true,
-        component: () => import('@/views/dashboard/basicList')
+        component: () => import('@/views/basicList')
       },
       {
         label: '卡片列表',
@@ -90,7 +90,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'CardList',
         showInMenu: true,
-        component: () => import('@/views/dashboard/cardList')
+        component: () => import('@/views/cardList')
       }
     ]
   },
@@ -125,7 +125,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'ResultSuccess',
         showInMenu: true,
-        component: () => import('@/views/dashboard/resultSuccess')
+        component: () => import('@/views/resultSuccess')
       },
       {
         label: '失败页',
@@ -133,7 +133,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'ResultFailure',
         showInMenu: true,
-        component: () => import('@/views/dashboard/resultFailure')
+        component: () => import('@/views/resultFailure')
       }
     ]
   },
@@ -152,7 +152,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'Page403',
         showInMenu: true,
-        component: () => import('@/views/dashboard/page403')
+        component: () => import('@/views/page403')
       },
       {
         label: '404',
@@ -160,7 +160,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'Page404',
         showInMenu: true,
-        component: () => import('@/views/dashboard/page404')
+        component: () => import('@/views/page404')
       },
       {
         label: '500',
@@ -168,7 +168,7 @@ const Routes = [
         auth: ['admin', 'customer'],
         name: 'Page500',
         showInMenu: true,
-        component: () => import('@/views/dashboard/page500')
+        component: () => import('@/views/page500')
       }
     ]
   },

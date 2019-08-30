@@ -1,5 +1,5 @@
-import { post } from '../../../utilitys/ipAxios'
-import MyChart from '../../../components/pieChart'
+import { post } from '../../utilitys/ipAxios'
+import MyChart from '../../components/pieChart'
 export default {
   components: {
     // GecStudentList,

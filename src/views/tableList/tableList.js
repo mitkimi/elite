@@ -1,7 +1,8 @@
-import { post } from '../../../utilitys/ipAxios'
-import NumberGrow from '../../../components/numberGrow'
+import { post } from '../../utilitys/ipAxios'
+import NumberGrow from '../../components/numberGrow'
 export default {
   components: {
+    // GecStudentList,
     NumberGrow
   },
   data () {
@@ -12,6 +13,7 @@ export default {
         status: null
       },
       loading: true,
+
       pageData: {
         tableData: [
           {
@@ -56,7 +58,19 @@ export default {
             address: '上海市普陀区金沙江路 1516 弄'
           }
         ],
+        // 1,没有任何改变 2,未收到链接 3,收到链接 4,完成申请 5,暂不申请 (后面type适用于顶部四个情况数据筛选) 6,网申预警 7,新提交信息 8,申请信息
         status: [
+          // {
+          //   value: 0,
+          //   // label: () => {
+          //   //   const h = this.$createElement
+          //   //   return h('p', null, [
+          //   //     h('span', null, '状态-'),
+          //   //     h('span', null, '预警（23）')
+          //   //   ])
+          //   // }
+          //   label: '预警（23）'
+          // },
           {
             value: 1,
             label: '没有任何改变'
@@ -81,18 +95,42 @@ export default {
             value: 6,
             label: '网申预警'
           }
+          // {
+          //   value: 7,
+          //   label: '新提交信息'
+          // },
+          // {
+          //   value: 8,
+          //   label: '申请信息'
+          // }
+          // {
+          //   value: 9,
+          //   label: '完成申请'
+          // },
+          // {
+          //   value: 10,
+          //   label: '完成申请'
+          // }
         ],
         summarize: {},
-        filterSummarize: {}
+        filterSummarize: {},
+        page: {
+          currentPageNum: 1,
+          allPageNum: 1
+        }
       }
     }
   },
   created () {
-    setTimeout(() => {
-      this.loading = false
-    }, 1000)
+    // this.handleSearchSubmit()
+    this.loading = false
   },
   methods: {
+    handleCreateStudent () {
+      this.$router.push({
+        path: '/dashboard/bCreateStudent'
+      })
+    },
     handleClearFilter () {
       this.search = {
         name: null,
@@ -111,7 +149,7 @@ export default {
       this.loading = true
       // 发送请求
       const params = this.filter
-      const uri = ''
+      const uri = '/application/query'
       const { data: res } = await post(uri, params)
       if (res.error.returnCode === 0) {
         this.pageData.tableData = res.data.studentsList
