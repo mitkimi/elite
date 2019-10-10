@@ -1,15 +1,14 @@
 import axios from 'axios'
-// import { Message } from 'iview';
 import apiUrl from './api.js'
-import router from '../router'
+import qs from 'qs'
 
 const useToken = true
 
 axios.defaults.timeout = 20000
 axios.defaults.baseURL = apiUrl.url
 axios.defaults.withCredentials = true
-// axios.defaults.headers = { 'Content-Type': 'application/json; charset=utf-8' }
-axios.defaults.headers.post['Content-Type'] = 'application/json'
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 if (useToken) {
   axios.defaults.headers.get['token'] = localStorage.token
   axios.defaults.headers.post['token'] = localStorage.token
@@ -32,17 +31,15 @@ axios.interceptors.response.use(
  */
 
 export function fetch (url, params = {}) {
+  // 在所有 get 接口出现 token 超时的时候直接跳去登录
+  if (localStorage.tokenExpiredAt * 1 < new Date() * 1) {
+    alert('登录超时')
+    return
+  }
   return new Promise((resolve, reject) => {
-    axios.get(url, {
-      params
-    })
+    axios.get(url, qs.stringify(params))
       .then((response) => {
         resolve(response)
-        if (response.data.code === -1000) {
-          router.push({
-            path: '/signin'
-          })
-        }
       })
       .catch((err) => {
         reject(err)
@@ -56,17 +53,16 @@ export function fetch (url, params = {}) {
  * @param data
  * @returns {Promise}
  */
-export function post (url, params = {}) {
+export function post (url, params = {}, noToken = false) {
+  // 在所有 post 接口出现 token 超时的时候直接跳去登录
+  if (!noToken && localStorage.tokenExpiredAt * 1 < new Date() * 1) {
+    alert('登录超时')
+    return
+  }
   return new Promise((resolve, reject) => {
-    axios.post(url, params)
+    axios.post(url, qs.stringify(params))
       .then(function (response) {
         resolve(response)
-        // 在所有 post 接口出现 -1000 状态时直接跳去登录
-        if (response.data.code === -1000 && url !== '/login/check') {
-          router.push({
-            path: '/signin'
-          })
-        }
       })
       .catch(function (error) {
         reject(error)

@@ -1,0 +1,67 @@
+<div class="page">
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>新建日程</span>
+    </div>
+    <div class="main-body">
+      <div class="description">
+        如果需使用会议室的活动，需预约会议室。<br>
+        在此处预约并且选择参与人员，将会自动在钉钉上发送会议通知，并在会议开始之前提醒。
+      </div>
+      <div class="form">
+        <el-form ref="form" :model="form" label-width="80px">
+          <el-form-item label="活动名称">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="参与人员">
+            <el-select v-model="form.partner"
+              multiple
+              filterable
+              style="width: 100%;"
+              placeholder="请选择除了自己以外的参会人员">
+              <el-option
+                v-for="item in pageData.options"
+                :key="item.userid"
+                :label="item.name"
+                :value="item.userid">
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="活动时间">
+            <el-col :span="24">
+              <el-date-picker
+                v-model="form.period.startAt"
+                type="datetime"
+                placeholder="选择开始时间"
+                @change="autoQueryFreeRoom">
+              </el-date-picker>
+              -
+              <el-date-picker
+                v-model="form.period.endAt"
+                type="datetime"
+                placeholder="选择结束时间"
+                @change="autoQueryFreeRoom">
+              </el-date-picker>
+            </el-col>
+          </el-form-item>
+          <el-form-item label="参会提醒">
+            <el-checkbox-group v-model="form.notify">
+              <el-checkbox label="立即发送提醒" name="type"></el-checkbox>
+              <el-checkbox label="会议开始之前 15 分钟发送提醒" name="type"></el-checkbox>
+              <el-checkbox label="会议开始之前 5 分钟发送提醒" name="type"></el-checkbox>
+            </el-checkbox-group>
+          </el-form-item>
+          <el-form-item label="会议室">
+            <el-select v-model="form.room" clearable filterable placeholder="请选择使用的会议室" style="width: 100%;">
+              <el-option v-for="item,index in pageData.rooms" :key="index" :label="item.roomName" :value="item.id"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary">立即创建</el-button>
+            <el-button>取消</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+  </el-card>
+</div>

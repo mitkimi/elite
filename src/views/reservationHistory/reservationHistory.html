@@ -1,0 +1,80 @@
+<div class="page">
+  <div class="basic-info-container" v-loading="loading">
+    <div class="info-box info-box-default">
+      <div class="num"><number-grow :value="43"></number-grow>次</div>
+      <div class="name">总使用次数</div>
+    </div>
+    <div class="info-box info-box-default">
+      <div class="num"><number-grow :value="1"></number-grow>个</div>
+      <div class="name">未完成预约</div>
+    </div>
+    <div class="info-box info-box-success">
+      <div class="num"><number-grow :value="3"></number-grow>个</div>
+      <div class="name">即将到来</div>
+    </div>
+    <div class="info-box info-box-danger">
+      <div class="num"><number-grow :value="8"></number-grow>个</div>
+      <div class="name">已过期</div>
+    </div>
+  </div>
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>我的会议室预约/使用记录</span>
+    </div>
+    <div class="main-body" v-loading="loading">
+      <div class="filter">
+        <el-date-picker
+          v-model="filter.period"
+          type="daterange"
+          align="right"
+          unlink-panels
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          :picker-options="pickerOptions">
+        </el-date-picker>
+        <el-button type="primary" @click="handleSearchSubmit">查询</el-button>
+        <el-button @click="handleClearFilter">重置</el-button>
+      </div>
+      <div class="info">
+        <el-alert
+          :title="'本次筛选共有 '+pageData.tableData.length+' 条数据'"
+          type="info"
+          show-icon>
+        </el-alert>
+      </div>
+      <div class="list-body">
+        <div class="list-item" v-for="item,index in pageData.tableData" :key="index">
+          <div class="avatar">
+            <img src="" />
+          </div>
+          <div class="list-info">
+            <div class="name">{{item.name}}</div>
+            <div class="partners">
+              参会人员：
+              <span v-if="item.partners && item.partners.length <= 5">
+                <span v-for="(p,i) in item.partners" :key="i">{{ p.name }} </span>
+              </span>
+              <span v-else>
+                <span>{{item.partners[0].name}} </span>
+                <span>{{item.partners[1].name}}</span>
+                <span>等 {{item.partners.length}} 人</span>
+              </span>
+            </div>
+            <div>{{item.address}}</div>
+          </div>
+          <div class="time">
+            <div class="">开始时间</div>
+            <div class="time-moment">{{item.date}}</div>
+          </div>
+          <div class="status">
+            <el-tag v-if="item.status === 'pending'">计划中</el-tag>
+          </div>
+          <div class="list-ops">
+            <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </el-card>
+</div>
